@@ -1,0 +1,38 @@
+  <header class="header" [class.scrolled]="isScrolled">
+    <div class="header-container">
+      <a class="logo" routerLink="/">
+        <img src="/logo1texto.png" alt="Faro Katalaxis" class="logo-img" />
+        <!-- <div>
+          <div class="logo-name">Faro Katalaxis</div>
+        </div> -->
+      </a>
+
+      <nav class="nav-desktop">
+        <a *ngFor="let link of navLinks" [routerLink]="link.href" class="nav-link">
+          {{ link.label }}
+        </a>
+      </nav>
+
+      <!-- <div class="header-actions">
+        <a routerLink="/iniciar-sesion" class="btn-secondary">Iniciar Sesión</a>
+        <a routerLink="/registro" class="btn-primary">Unirse</a>
+      </div> -->
+
+      <button class="menu-toggle" (click)="toggleMenu()">
+        <span class="menu-icon" [class.open]="isMenuOpen"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" [class.open]="isMenuOpen">
+      <nav class="mobile-nav">
+        <a *ngFor="let link of navLinks" [routerLink]="link.href" class="mobile-nav-link" (click)="isMenuOpen = false">
+          {{ link.label }}
+        </a>
+        <!-- <div class="mobile-actions">
+          <a routerLink="/iniciar-sesion" class="btn-secondary">Iniciar Sesión</a>
+          <a routerLink="/registro" class="btn-primary">Unirse</a>
+        </div> -->
+      </nav>
+    </div>
+  </header>

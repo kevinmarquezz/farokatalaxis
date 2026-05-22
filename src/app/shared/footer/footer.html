@@ -1,0 +1,39 @@
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a routerLink="/" class="footer-logo">
+            <span class="logo-icon">◇</span>
+            <span class="logo-text">Faro Katalaxis</span>
+          </a>
+          <p class="footer-tagline">
+            Un archipiélago de conocimiento para navegantes de las ideas de la libertad.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+            <a href="#" class="social-link" aria-label="YouTube">▶</a>
+            <a href="#" class="social-link" aria-label="Telegram">✈</a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <div *ngFor="let section of footerSections" class="footer-section">
+            <h4 class="footer-section-title">{{ section.title }}</h4>
+            <ul class="footer-section-list">
+              <li *ngFor="let link of section.links">
+                <a [routerLink]="link.href" class="footer-link">{{ link.label }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">© 2026 Faro Katalaxis. Todos los derechos reservados.</p>
+        <div class="legal-links">
+          <a routerLink="/privacidad" class="legal-link">Privacidad</a>
+          <a routerLink="/terminos" class="legal-link">Términos</a>
+        </div>
+      </div>
+    </div>
+  </footer>

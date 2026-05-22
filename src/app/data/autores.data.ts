@@ -1,0 +1,60 @@
+import { Autor } from '../models/autor.model';
+
+export const AUTORES: Autor[] = [
+  {
+    id: 'mises',
+    nombre: 'Ludwig von Mises',
+    descripcion: 'Principal exponente de la Escuela Austriaca. Desarrolló la praxeología como fundamento de la economía y demostró la imposibilidad del cálculo económico bajo el socialismo.',
+    escuela: 'austriaca',
+    wikipedia: 'https://es.wikipedia.org/wiki/Ludwig_von_Mises',
+    color: '#c9963a',
+  },
+  {
+    id: 'hayek',
+    nombre: 'Friedrich A. Hayek',
+    descripcion: 'Premio Nobel de Economía 1974. Desarrolló la teoría del conocimiento disperso y el concepto de orden espontáneo (catalaxia). Autor de la crítica más profunda al planificación central.',
+    escuela: 'austriaca',
+    wikipedia: 'https://es.wikipedia.org/wiki/Friedrich_Hayek',
+    color: '#5DCAA5',
+  },
+  {
+    id: 'rothbard',
+    nombre: 'Murray N. Rothbard',
+    descripcion: 'Fundador del anarcocapitalismo. Combinó la economía austriaca con la filosofía del derecho natural para construir una teoría libertaria coherente.',
+    escuela: 'austriaca',
+    wikipedia: 'https://es.wikipedia.org/wiki/Murray_Rothbard',
+    color: '#AFA9EC',
+  },
+  {
+    id: 'friedman',
+    nombre: 'Milton Friedman',
+    descripcion: 'Premio Nobel de Economía 1976. Líder de la Escuela de Chicago. Defensor del libre mercado, la moneda sana y la educación con vouchers.',
+    escuela: 'chicago',
+    wikipedia: 'https://es.wikipedia.org/wiki/Milton_Friedman',
+    color: '#97C459',
+  },
+  {
+    id: 'sowell',
+    nombre: 'Thomas Sowell',
+    descripcion: 'Economista y ensayista de la Escuela de Chicago. Conocido por desmitificar ideas progresistas con datos y lógica económica accesible.',
+    escuela: 'chicago',
+    wikipedia: 'https://es.wikipedia.org/wiki/Thomas_Sowell',
+    color: '#F0997B',
+  },
+  {
+    id: 'bastiat',
+    nombre: 'Frédéric Bastiat',
+    descripcion: 'Economista liberal francés del siglo XIX. Sus ensayos, especialmente "La ley" y "Lo que se ve y lo que no se ve", siguen siendo lecturas fundamentales del liberalismo.',
+    escuela: 'liberal-clasico',
+    wikipedia: 'https://es.wikipedia.org/wiki/Fr%C3%A9d%C3%A9ric_Bastiat',
+    color: '#FAC775',
+  },
+  {
+    id: 'locke',
+    nombre: 'John Locke',
+    descripcion: 'Padre del liberalismo clásico. Sus ideas sobre los derechos naturales, la propiedad y el gobierno limitado son el fundamento filosófico del pensamiento liberal.',
+    escuela: 'liberal-clasico',
+    wikipedia: 'https://es.wikipedia.org/wiki/John_Locke',
+    color: '#85B7EB',
+  },
+];

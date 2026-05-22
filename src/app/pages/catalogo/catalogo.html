@@ -1,0 +1,195 @@
+<div class="catalog-page">
+  <section class="catalog-hero">
+    <div class="hero-container">
+      <h1 class="hero-title">Biblioteca del Conocimiento</h1>
+      <p class="hero-subtitle">
+        Explora nuestra colección curada de recursos sobre economía, filosofía política y las ideas de la libertad.
+      </p>
+
+      <!-- Search Bar -->
+      <div class="search-container">
+        <div class="search-box">
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.3-4.3"/>
+          </svg>
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Buscar por título, autor o tema..."
+            [(ngModel)]="searchQuery"
+            (input)="filterResources()"
+          />
+          <button *ngIf="searchQuery" class="search-clear" (click)="searchQuery = ''; filterResources()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-decoration">
+      <div class="decoration-circle circle-1"></div>
+      <div class="decoration-circle circle-2"></div>
+      <div class="decoration-circle circle-3"></div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="catalog-main">
+    <div class="main-container">
+
+      <!-- Filters Sidebar -->
+      <aside class="filters-sidebar" [class.open]="isFilterOpen">
+        <div class="filters-header">
+          <h3 class="filters-title">Filtros</h3>
+          <button
+            *ngIf="getActiveFiltersCount() > 0"
+            class="clear-filters-btn"
+            (click)="clearFilters()"
+          >
+            Limpiar ({{ getActiveFiltersCount() }})
+          </button>
+        </div>
+
+        <!-- Type Filter -->
+        <div class="filter-group">
+          <h4 class="filter-label">Tipo de recurso</h4>
+          <div class="type-buttons">
+            <button
+              *ngFor="let type of types"
+              class="type-btn"
+              [class.active]="selectedType === type.value"
+              (click)="selectedType = selectedType === type.value ? '' : type.value; filterResources()"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path [attr.d]="getTypeIcon(type.value)"/>
+              </svg>
+              <span>{{ type.label }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Author Filter -->
+        <div class="filter-group">
+          <h4 class="filter-label">Autor</h4>
+          <select
+            class="filter-select"
+            [(ngModel)]="selectedAuthor"
+            (change)="filterResources()"
+          >
+            <option value="">Todos los autores</option>
+            <option *ngFor="let author of authors" [value]="author.id">{{ author.nombre }}</option>
+          </select>
+        </div>
+
+        <!-- Difficulty Filter -->
+        <div class="filter-group">
+          <h4 class="filter-label">Dificultad</h4>
+          <div class="difficulty-buttons">
+            <button
+              *ngFor="let diff of difficulties"
+              class="difficulty-btn"
+              [class.active]="selectedDifficulty === diff.value"
+              [ngClass]="getDifficultyClass(diff.value)"
+              (click)="selectedDifficulty = selectedDifficulty === diff.value ? '' : diff.value; filterResources()"
+            >
+              {{ diff.label }}
+            </button>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- Resources Grid -->
+      <section class="resources-section">
+
+        <!-- Results Header -->
+        <div class="results-header">
+          <p class="results-count">
+            {{ filteredResources.length }}
+            <span>{{ filteredResources.length === 1 ? 'recurso encontrado' : 'recursos encontrados' }}</span>
+          </p>
+          <button class="filter-toggle-btn" (click)="toggleFilters()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+            </svg>
+            <span>Filtros</span>
+            <span *ngIf="getActiveFiltersCount() > 0" class="filter-badge">{{ getActiveFiltersCount() }}</span>
+          </button>
+        </div>
+
+        <!-- Resources Grid -->
+        <div class="resources-grid" *ngIf="filteredResources.length > 0">
+          <article
+            *ngFor="let resource of filteredResources"
+            class="resource-card"
+          >
+            <!-- Card Image -->
+          <div class="card-image" [ngClass]="'type-' + resource.tipo"
+              [style.background]="resource.portadaColor || '#1a1917'">
+            <div class="card-img-skeleton" *ngIf="!imgLoaded[resource.id]"></div>
+            <img
+              *ngIf="resource.imagenUrl"
+              [src]="resource.imagenUrl"
+              [alt]="resource.titulo"
+              class="card-img"
+              [class.loaded]="imgLoaded[resource.id]"
+              loading="lazy"
+              (load)="onImgLoad(resource.id)"
+              (error)="onImgError($event)"
+            />
+            <span class="card-type-badge">{{ tipoLabel[resource.tipo] }}</span>
+          </div>
+
+            <!-- Card Content -->
+            <div class="card-content">
+              <div class="card-meta">
+                <span class="card-year">{{ resource.anio }}</span>
+                <span class="card-difficulty" [ngClass]="getDifficultyClass(resource.nivel)">
+                  {{ resource.nivel | titlecase }}
+                </span>
+              </div>
+
+              <h3 class="card-title">{{ resource.titulo }}</h3>
+              <p class="card-author">{{ getAutor(resource.autorId)?.nombre }}</p>
+              <p class="card-description">{{ resource.descripcion }}</p>
+
+              <div class="card-footer">
+                <div class="card-tags">
+                  <span *ngFor="let tema of resource.temas.slice(0, 2)" class="tag topic-tag">{{ tema }}</span>
+                </div>
+                <div class="card-info">
+                  <span *ngIf="resource.duracion">{{ resource.duracion }}</span>
+                </div>
+              </div>
+
+              <button [routerLink]="['/recurso', resource.id]" class="card-btn">
+                <span>Ver recurso</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state" *ngIf="filteredResources.length === 0">
+          <div class="empty-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.3-4.3"/>
+              <path d="M8 8h6"/>
+            </svg>
+          </div>
+          <h3 class="empty-title">No se encontraron recursos</h3>
+          <p class="empty-description">Intenta ajustar los filtros o buscar con otros términos.</p>
+          <button class="empty-btn" (click)="clearFilters()">Limpiar filtros</button>
+        </div>
+
+      </section>
+    </div>
+  </main>
+</div>
