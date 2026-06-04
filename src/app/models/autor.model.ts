@@ -5,21 +5,29 @@ export interface Autor {
   nombre: string;
   descripcion: string;
   escuela: EscuelaEconomica;
-  fotoUrl?: string;
+  fotoUrl?: string | null;
   wikipedia?: string;
-  color?: string; 
+  color?: string;
 }
 
-export interface Track {
+export interface TrackPaso {
+  recursoId: string;
+  introduccion: string;   
+  enfoque?: string;       
+}
+
+export interface LearningTrack {
   id: string;
   titulo: string;
-  descripcion: string;
+  tagline: string;        
+  descripcion: string;    
+  objetivo: string;       
+  paraQuien: string[];    
   nivel: 'principiante' | 'intermedio' | 'avanzado';
-  recursosIds: string[]; 
-  temas: string[];
-  duracionEstimada: string; 
+  pasos: TrackPaso[];
+  duracionTotal: string;
   color?: string;
-  icono?: string; 
+  temas?: string[];
 }
 
 export interface Tema {

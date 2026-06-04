@@ -1,1 +1,113 @@
-<p>track works!</p>
+<div class="track-page" *ngIf="!cargando && track" [style.--track-color]="track.color">
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a routerLink="/">Inicio</a>
+    <span class="sep">/</span>
+    <a routerLink="/tracks">Tracks</a>
+    <span class="sep">/</span>
+    <span>{{ track.titulo }}</span>
+  </div>
+
+  <!-- Header -->
+  <header class="track-header">
+    <div class="header-inner">
+      <div class="header-meta">
+        <span class="badge-nivel" [ngClass]="'nivel-' + track.nivel">
+          {{ nivelLabel[track.nivel] }}
+        </span>
+        <span class="header-duracion">{{ track.duracionTotal }}</span>
+        <span class="header-pasos">{{ track.pasos.length }} recursos</span>
+      </div>
+
+      <h1 class="track-titulo">{{ track.titulo }}</h1>
+      <p class="track-tagline">{{ track.tagline }}</p>
+      <p class="track-descripcion">{{ track.descripcion }}</p>
+
+      <div class="track-objetivo">
+        <span class="objetivo-label">Al terminar este track vas a poder</span>
+        <p class="objetivo-texto">{{ track.objetivo }}</p>
+      </div>
+
+      <div class="track-para-quien">
+        <span class="para-quien-label">Este track es para vos si...</span>
+        <ul class="para-quien-list">
+          <li *ngFor="let perfil of track.paraQuien">{{ perfil }}</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="divider-line"></div>
+
+  <!-- Camino de lectura -->
+  <section class="camino-section">
+    <div class="camino-inner">
+      <h2 class="camino-titulo">El camino</h2>
+
+      <div class="pasos-timeline">
+        <div
+          *ngFor="let item of pasos"
+          class="paso"
+        >
+          <!-- Número y línea -->
+          <div class="paso-marker">
+            <div class="paso-numero">{{ item.numero }}</div>
+            <div class="paso-linea" *ngIf="item.numero < pasos.length"></div>
+          </div>
+
+          <!-- Contenido del paso -->
+          <div class="paso-contenido">
+
+            <!-- Recurso info -->
+            <div class="paso-recurso" *ngIf="item.recurso">
+              <div class="recurso-header">
+                <div class="recurso-info">
+                  <span class="recurso-tipo">{{ tipoLabel[item.recurso.tipo] }}</span>
+                  <span class="recurso-anio" *ngIf="item.recurso.anio">{{ item.recurso.anio }}</span>
+                </div>
+                <span class="recurso-duracion" *ngIf="item.recurso.duracion">{{ item.recurso.duracion }}</span>
+              </div>
+
+              <h3 class="recurso-titulo">{{ item.recurso.titulo }}</h3>
+              <p class="recurso-autor">
+                <a [routerLink]="['/autor', item.recurso.autorId]" class="autor-link">
+                  {{ item.autor?.nombre ?? item.recurso.autorId }}
+                </a>
+              </p>            
+            </div>
+
+            <!-- Introducción editorial -->
+            <div class="paso-editorial">
+              <p class="editorial-texto">{{ item.paso.introduccion }}</p>
+              <div class="enfoque-box" *ngIf="item.paso.enfoque">
+                <span class="enfoque-label">Qué mirar</span>
+                <p class="enfoque-texto">{{ item.paso.enfoque }}</p>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <a
+              *ngIf="item.recurso"
+              [routerLink]="['/recurso', item.recurso.id]"
+              class="paso-cta"
+            >
+              Ver recurso
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<!-- Loading -->
+<div class="track-loading" *ngIf="cargando">
+  <p>Cargando...</p>
+</div>

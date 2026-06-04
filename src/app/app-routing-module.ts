@@ -5,6 +5,9 @@ import { Catalogo } from './pages/catalogo/catalogo';
 import { RecursoComponent } from './pages/recurso/recurso';
 import { Tracks } from './pages/tracks/tracks';
 import { Track } from './pages/track/track';
+import { AutorComponent } from './pages/autor/autor';
+import { Autores } from './pages/autores/autores';
+import { NotFound } from './pages/not-found/not-found';
 
 const routes: Routes = [
   { path: '', component: Home },
@@ -12,7 +15,9 @@ const routes: Routes = [
   { path: 'recurso/:id', component: RecursoComponent },
   { path: 'tracks', component: Tracks },
   { path: 'track/:id', component: Track },
-  { path: '**', redirectTo: '' },
+  { path: 'autores', component: Autores },
+  { path: 'autor/:id', component: AutorComponent },
+  { path: '**', component: NotFound },
 ];
 
 @NgModule({

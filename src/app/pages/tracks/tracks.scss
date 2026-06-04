@@ -1,0 +1,246 @@
+$color-background: #FDFAF6;
+$color-foreground: #1a2332;
+$color-primary: #1e3a5f;
+$color-accent: #c9a227;
+$color-muted: #6b7280;
+$color-border: #e5e2dc;
+$color-card: #ffffff;
+
+$font-serif: 'Cormorant Garamond', Georgia, serif;
+$font-sans: 'Inter', system-ui, sans-serif;
+
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+$shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+.tracks-page {
+  min-height: 100vh;
+  background: $color-background;
+  font-family: $font-sans;
+  color: $color-foreground;
+}
+
+// Hero
+.tracks-hero {
+  padding: 10rem 1.5rem 3rem;
+  text-align: center;
+}
+
+.hero-container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.hero-tag {
+  display: inline-block;
+  padding: 0.375rem 0.875rem;
+  background: rgba($color-accent, 0.1);
+  color: $color-accent;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  border-radius: 4px;
+  margin-bottom: 1.25rem;
+}
+
+.hero-title {
+  font-family: $font-serif;
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  font-weight: 600;
+  color: $color-foreground;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: $color-muted;
+}
+
+// Main
+.tracks-main {
+  padding: 1rem 1.5rem 5rem;
+}
+
+.tracks-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+// Grid
+.tracks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+
+  @media (min-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// Card
+.track-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  background: $color-card;
+  border: 1px solid $color-border;
+  border-radius: 16px;
+  text-decoration: none;
+  color: $color-foreground;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+    border-color: transparent;
+
+    .card-accent {
+      opacity: 1;
+    }
+
+    .card-cta {
+      color: var(--track-color, $color-accent);
+
+      svg {
+        transform: translateX(4px);
+      }
+    }
+  }
+}
+
+.card-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--track-color, $color-accent);
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-nivel {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 0.25rem 0.625rem;
+  border-radius: 4px;
+
+  &.nivel-principiante {
+    color: #059669;
+    background: rgba(#059669, 0.1);
+  }
+  &.nivel-intermedio {
+    color: #d97706;
+    background: rgba(#d97706, 0.1);
+  }
+  &.nivel-avanzado {
+    color: #7c3aed;
+    background: rgba(#7c3aed, 0.1);
+  }
+}
+
+.card-duracion {
+  font-size: 0.8125rem;
+  color: $color-muted;
+}
+
+.card-titulo {
+  font-family: $font-serif;
+  font-size: 1.625rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: $color-foreground;
+  margin: 0;
+}
+
+.card-tagline {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: $color-muted;
+  font-style: italic;
+  margin: 0;
+}
+
+.card-para-quien {
+  flex: 1;
+  padding: 1rem;
+  background: rgba($color-foreground, 0.03);
+  border-radius: 8px;
+  border: 1px solid $color-border;
+}
+
+.para-quien-label {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: $color-muted;
+  margin-bottom: 0.625rem;
+}
+
+.para-quien-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+
+  li {
+    font-size: 0.875rem;
+    color: $color-foreground;
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.4;
+
+    &::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--track-color, $color-accent);
+      font-size: 0.75rem;
+    }
+  }
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  border-top: 1px solid $color-border;
+  margin-top: auto;
+}
+
+.card-pasos {
+  font-size: 0.8125rem;
+  color: $color-muted;
+}
+
+.card-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: $color-muted;
+  transition: color 0.2s ease;
+
+  svg {
+    transition: transform 0.2s ease;
+  }
+}

@@ -153,7 +153,11 @@
               </div>
 
               <h3 class="card-title">{{ resource.titulo }}</h3>
-              <p class="card-author">{{ getAutor(resource.autorId)?.nombre }}</p>
+              <p class="card-author">
+                <a [routerLink]="['/autor', resource.autorId]" class="autor-link" (click)="$event.stopPropagation()">
+                  {{ getAutor(resource.autorId)?.nombre }}
+                </a>
+              </p>
               <p class="card-description">{{ resource.descripcion }}</p>
 
               <div class="card-footer">

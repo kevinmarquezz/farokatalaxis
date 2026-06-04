@@ -1,0 +1,73 @@
+<div class="autores-page">
+
+  <section class="autores-hero">
+    <div class="hero-container">
+      <span class="hero-tag">Pensadores</span>
+      <h1 class="hero-title">Autores</h1>
+      <p class="hero-subtitle">
+        Los economistas y filósofos cuyas ideas forman el núcleo de la biblioteca.
+      </p>
+
+      <div class="escuela-filters">
+        <button
+          class="escuela-btn"
+          [class.active]="selectedEscuela === ''"
+          (click)="clearFilter()"
+        >
+          Todos
+        </button>
+        <button
+          *ngFor="let escuela of escuelas"
+          class="escuela-btn"
+          [class.active]="selectedEscuela === escuela.value"
+          (click)="selectedEscuela = escuela.value; filterAutores()"
+        >
+          {{ escuela.label }}
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <main class="autores-main">
+    <div class="autores-container">
+      <div class="autores-grid">
+        <a
+          *ngFor="let autor of filteredAutores"
+          [routerLink]="['/autor', autor.id]"
+          class="autor-card"
+          [style.--autor-color]="autor.color"
+        >
+          <div class="card-color-bar"></div>
+          <div class="card-body">
+            <div class="card-top">
+              <!-- Foto o avatar -->
+              <div class="card-avatar">
+                <img
+                  *ngIf="autor.fotoUrl"
+                  [src]="autor.fotoUrl"
+                  [alt]="autor.nombre"
+                  class="avatar-img"
+                />
+                <span *ngIf="!autor.fotoUrl" class="avatar-inicial">
+                  {{ autor.nombre.charAt(0) }}
+                </span>
+              </div>
+              <div class="card-meta">
+                <span class="card-escuela">{{ escuelaLabel[autor.escuela] }}</span>
+                <h2 class="card-nombre">{{ autor.nombre }}</h2>
+              </div>
+            </div>
+            <p class="card-descripcion">{{ autor.descripcion }}</p>
+            <span class="card-cta">
+              Ver autor
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </main>
+
+</div>

@@ -1,1 +1,55 @@
-<p>tracks works!</p>
+<div class="tracks-page">
+
+  <section class="tracks-hero">
+    <div class="hero-container">
+      <span class="hero-tag">Rutas de lectura</span>
+      <h1 class="hero-title">¿Desde dónde llegás?</h1>
+      <p class="hero-subtitle">
+        Cada track está pensado para un punto de partida distinto. Elegí el que mejor te represente y te guiamos por los textos correctos, en el orden correcto.
+      </p>
+    </div>
+  </section>
+
+  <main class="tracks-main">
+    <div class="tracks-container">
+      <div class="tracks-grid">
+        <a
+          *ngFor="let track of tracks"
+          [routerLink]="['/track', track.id]"
+          class="track-card"
+          [style.--track-color]="track.color"
+        >
+          <div class="card-accent"></div>
+
+          <div class="card-header">
+            <span class="card-nivel" [ngClass]="'nivel-' + track.nivel">
+              {{ nivelLabel[track.nivel] }}
+            </span>
+            <span class="card-duracion">{{ track.duracionTotal }}</span>
+          </div>
+
+          <h2 class="card-titulo">{{ track.titulo }}</h2>
+          <p class="card-tagline">{{ track.tagline }}</p>
+
+          <div class="card-para-quien">
+            <span class="para-quien-label">Este track es para vos si...</span>
+            <ul class="para-quien-list">
+              <li *ngFor="let perfil of track.paraQuien">{{ perfil }}</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <span class="card-pasos">{{ track.pasos.length }} recursos</span>
+            <span class="card-cta">
+              Empezar
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </main>
+
+</div>

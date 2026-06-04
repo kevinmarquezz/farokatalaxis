@@ -1,13 +1,22 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { LearningTrack } from '../../models/autor.model';
+import { TracksService } from '../../services/autores-tracks.service';
 
+interface EntryPoint {
+  perfil: string;
+  descripcion: string;
+  track: LearningTrack;
+}
+ 
 @Component({
   selector: 'app-home',
   standalone: false,
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class Home {
+export class Home implements OnInit {
   email = '';
+  entryPoints: EntryPoint[] = [];
 
   principles = [
     {
@@ -31,6 +40,41 @@ export class Home {
       description: 'Un gobierno restringido a proteger los derechos individuales, no a violarlos.'
     }
   ];
+
+  constructor(private tracksService: TracksService) {}
+
+  ngOnInit(): void {
+    const ENTRY_TRACK_IDS = [
+      'empezar-desde-cero',
+      'la-otra-vereda',
+      'estudiante-economia',
+    ];
+ 
+    this.tracksService.getAll().subscribe(tracks => {
+      const perfiles: Record<string, { perfil: string; descripcion: string }> = {
+        'empezar-desde-cero': {
+          perfil: 'Nunca leí sobre esto',
+          descripcion: 'Empezá con los textos más accesibles de la tradición liberal.',
+        },
+        'la-otra-vereda': {
+          perfil: 'Vengo de la izquierda',
+          descripcion: 'Conocé el argumento liberal en serio, sin caricaturas.',
+        },
+        'estudiante-economia': {
+          perfil: 'Soy estudiante de economía',
+          descripcion: 'El contrapunto austriaco a lo que te enseñan en la facultad.',
+        },
+      };
+ 
+      this.entryPoints = ENTRY_TRACK_IDS
+        .map(id => {
+          const track = tracks.find(t => t.id === id);
+          if (!track) return null;
+          return { ...perfiles[id], track };
+        })
+        .filter(Boolean) as EntryPoint[];
+    });
+  }
 
   featuredResource = {
     tag: 'Lectura Esencial',

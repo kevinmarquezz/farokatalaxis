@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Autor, Track } from '../models/autor.model';
+import { Autor, LearningTrack } from '../models/autor.model';
 import { AUTORES, TRACKS } from '../data';
 
 @Injectable({ providedIn: 'root' })
@@ -18,15 +18,15 @@ export class AutoresService {
 @Injectable({ providedIn: 'root' })
 export class TracksService {
 
-  getAll(): Observable<Track[]> {
+  getAll(): Observable<LearningTrack[]> {
     return of(TRACKS);
   }
 
-  getById(id: string): Observable<Track | undefined> {
+  getById(id: string): Observable<LearningTrack | undefined> {
     return of(TRACKS.find(t => t.id === id));
   }
 
-  getByNivel(nivel: string): Observable<Track[]> {
+  getByNivel(nivel: string): Observable<LearningTrack[]> {
     return of(TRACKS.filter(t => t.nivel === nivel));
   }
 }

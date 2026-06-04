@@ -4,12 +4,11 @@
   <div class="breadcrumb">
     <a routerLink="/">Inicio</a>
     <span class="breadcrumb-sep">/</span>
-    <a routerLink="/catalogo">Catálogo</a>
+    <a routerLink="/biblioteca">Catálogo</a>
     <span class="breadcrumb-sep">/</span>
     <span>{{ recurso.titulo }}</span>
   </div>
 
-  <!-- Contenido principal -->
   <div class="recurso-inner">
 
     <!-- Badges -->
@@ -22,7 +21,9 @@
     <!-- Título -->
     <h1 class="recurso-title">{{ recurso.titulo }}</h1>
     <p class="recurso-autor">
-      {{ autor?.nombre ?? recurso.autorId }}
+      <a [routerLink]="['/autor', recurso.autorId]" class="autor-link">
+        {{ autor?.nombre ?? recurso.autorId }}
+      </a>
       <span *ngIf="recurso.anio"> · {{ recurso.anio }}</span>
     </p>
 
@@ -56,7 +57,6 @@
 
     <div class="divider"></div>
 
-    <!-- Descripción -->
     <p class="descripcion">{{ recurso.descripcion }}</p>
 
     <div class="divider"></div>
@@ -85,7 +85,11 @@
       </div>
       <div class="detalle-item">
         <div class="detalle-key">Autor</div>
-        <div class="detalle-val">{{ autor?.nombre ?? recurso.autorId }}</div>
+        <div class="detalle-val">
+          <a [routerLink]="['/autor', recurso.autorId]" class="autor-link-grid">
+            {{ autor?.nombre ?? recurso.autorId }}
+          </a>
+        </div>
       </div>
     </div>
 
@@ -97,10 +101,37 @@
       </div>
     </div>
 
+    <!-- Relacionados -->
+    <div class="relacionados-block" *ngIf="relacionados.length > 0">
+      <div class="divider"></div>
+      <h2 class="relacionados-titulo">También te puede interesar</h2>
+      <div class="relacionados-grid">
+        <a
+          *ngFor="let rel of relacionados"
+          [routerLink]="['/recurso', rel.id]"
+          class="rel-card"
+        >
+          <div class="rel-image" [style.background]="rel.portadaColor || '#1a1917'">
+            <img
+              *ngIf="rel.imagenUrl"
+              [src]="rel.imagenUrl"
+              [alt]="rel.titulo"
+              class="rel-img"
+            />
+            <span class="rel-tipo">{{ tipoLabelMap[rel.tipo] }}</span>
+          </div>
+          <div class="rel-body">
+            <span class="rel-nivel" [ngClass]="'nivel-' + rel.nivel">{{ rel.nivel | titlecase }}</span>
+            <h3 class="rel-titulo">{{ rel.titulo }}</h3>
+            <p class="rel-autor">{{ getAutorNombre(rel.autorId) }}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<!-- Loading -->
 <div class="recurso-loading" *ngIf="cargando">
   <p>Cargando...</p>
 </div>

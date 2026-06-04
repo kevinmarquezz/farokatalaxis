@@ -20,6 +20,7 @@ export class Navbar implements OnInit {
   navLinks = [
     { label: 'Inicio', href: '/' },
     { label: 'Biblioteca', href: '/biblioteca' },
+        { label: 'Autores', href: '/autores' },
     { label: 'Tracks', href: '/tracks' },
     // { label: 'Comunidad', href: '/comunidad' }
   ];

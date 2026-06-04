@@ -16,6 +16,9 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import { Footer } from './shared/footer/footer';
+import { AutorComponent } from './pages/autor/autor';
+import { Autores } from './pages/autores/autores';
+import { NotFound } from './pages/not-found/not-found';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { Footer } from './shared/footer/footer';
     RecursoCard,
     TrackCard,
     Footer,
+    AutorComponent,
+    Autores,
+    NotFound,
   ],
   imports: [
     BrowserModule,

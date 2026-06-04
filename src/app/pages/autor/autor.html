@@ -1,0 +1,95 @@
+<div class="autor-page" *ngIf="!cargando && autor" [style.--autor-color]="autor.color">
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a routerLink="/">Inicio</a>
+    <span class="sep">/</span>
+    <a routerLink="/autores">Autores</a>
+    <span class="sep">/</span>
+    <span>{{ autor.nombre }}</span>
+  </div>
+
+  <!-- Header -->
+  <header class="autor-header">
+    <div class="header-inner">
+
+      <div class="header-top">
+        <!-- Foto o avatar -->
+        <div class="autor-avatar">
+          <img
+            *ngIf="autor.fotoUrl"
+            [src]="autor.fotoUrl"
+            [alt]="autor.nombre"
+            class="avatar-img"
+          />
+          <span *ngIf="!autor.fotoUrl" class="avatar-inicial">
+            {{ autor.nombre.charAt(0) }}
+          </span>
+        </div>
+
+        <div class="header-info">
+          <span class="badge-escuela">{{ escuelaLabel[autor.escuela] }}</span>
+          <h1 class="autor-nombre">{{ autor.nombre }}</h1>
+          <a
+            *ngIf="autor.wikipedia"
+            [href]="autor.wikipedia"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="wikipedia-link"
+          >
+            Ver en Wikipedia
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <p class="autor-descripcion">{{ autor.descripcion }}</p>
+    </div>
+  </header>
+
+  <div class="divider"></div>
+
+  <!-- Recursos -->
+  <section class="recursos-section">
+    <div class="section-inner">
+      <h2 class="section-titulo">
+        {{ recursos.length }} {{ recursos.length === 1 ? 'recurso' : 'recursos' }} en la biblioteca
+      </h2>
+
+      <div class="recursos-grid">
+        <a
+          *ngFor="let recurso of recursos"
+          [routerLink]="['/recurso', recurso.id]"
+          class="recurso-card"
+        >
+          <div class="card-image" [style.background]="recurso.portadaColor || '#1a1917'">
+            <img
+              *ngIf="recurso.imagenUrl"
+              [src]="recurso.imagenUrl"
+              [alt]="recurso.titulo"
+              class="card-img"
+            />
+            <span class="card-tipo">{{ tipoLabel[recurso.tipo] }}</span>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-anio">{{ recurso.anio }}</span>
+              <span class="card-nivel" [ngClass]="'nivel-' + recurso.nivel">{{ recurso.nivel | titlecase }}</span>
+            </div>
+            <h3 class="card-titulo">{{ recurso.titulo }}</h3>
+            <p class="card-descripcion">{{ recurso.descripcion }}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="autor-loading" *ngIf="cargando">
+  <p>Cargando...</p>
+</div>

@@ -1,8 +1,7 @@
 import { Recurso } from '../models/recurso.model';
 
-// Portadas via Open Library 
-
 export const RECURSOS: Recurso[] = [
+  // ── MISES ──────────────────────────────────────────────
   {
     id: 'accion-humana',
     titulo: 'La acción humana',
@@ -34,8 +33,21 @@ export const RECURSOS: Recurso[] = [
     url: 'https://mises.org/library/bureaucracy',
     portadaColor: '#1e1a12', portadaTextoColor: '#c9963a',
     anio: 1944, duracion: '130 páginas',
-    imagenUrl:'https://covers.openlibrary.org/b/id/14110548-L.jpg',
+    imagenUrl: 'https://covers.openlibrary.org/b/id/14110548-L.jpg',
   },
+  {
+    id: 'socialismo-mises',
+    titulo: 'Socialismo',
+    descripcion: 'La refutación más completa del socialismo jamás escrita. Mises demuestra que sin propiedad privada de los medios de producción es imposible el cálculo económico racional, condenando al socialismo al caos y la pobreza.',
+    tipo: 'libro', nivel: 'avanzado', idioma: 'es', autorId: 'mises',
+    temas: ['socialismo', 'calculo-economico', 'propiedad-privada'],
+    url: 'https://mises.org/library/socialism-economic-and-sociological-analysis',
+    portadaColor: '#1e1a12', portadaTextoColor: '#c9963a',
+    anio: 1922, duracion: '570 páginas', destacado: true,
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780913966624-L.jpg',
+  },
+
+  // ── HAYEK ──────────────────────────────────────────────
   {
     id: 'camino-servidumbre',
     titulo: 'Camino de servidumbre',
@@ -70,6 +82,19 @@ export const RECURSOS: Recurso[] = [
     imagenUrl: 'https://covers.openlibrary.org/b/id/14111257-L.jpg',
   },
   {
+    id: 'arrogancia-fatal',
+    titulo: 'La arrogancia fatal',
+    descripcion: 'El último gran libro de Hayek. Demuestra que el socialismo no fracasa por razones morales sino intelectuales: es un error creer que la razón humana puede diseñar un orden social superior al que emerge espontáneamente.',
+    tipo: 'libro', nivel: 'avanzado', idioma: 'es', autorId: 'hayek',
+    temas: ['socialismo', 'orden-espontaneo', 'conocimiento', 'civilizacion'],
+    url: 'https://mises.org/library/fatal-conceit-errors-socialism',
+    portadaColor: '#121a1e', portadaTextoColor: '#5DCAA5',
+    anio: 1988, duracion: '194 páginas',
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780226320663-L.jpg',
+  },
+
+  // ── ROTHBARD ───────────────────────────────────────────
+  {
     id: 'anatomia-estado',
     titulo: 'Anatomía del Estado',
     descripcion: 'Un ensayo devastador sobre la naturaleza del Estado. Rothbard desmonta la idea de que el gobierno representa al pueblo y muestra su verdadera naturaleza como organización de dominación.',
@@ -92,6 +117,19 @@ export const RECURSOS: Recurso[] = [
     imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780814775592-L.jpg',
   },
   {
+    id: 'por-una-nueva-libertad',
+    titulo: 'Por una nueva libertad',
+    descripcion: 'El manifiesto libertario de Rothbard. Aplica los principios del libertarismo a problemas concretos: educación, salud, policía, dinero y relaciones exteriores. El texto más accesible para entender el anarcocapitalismo en la práctica.',
+    tipo: 'libro', nivel: 'intermedio', idioma: 'es', autorId: 'rothbard',
+    temas: ['anarcocapitalismo', 'libertad', 'estado', 'libre-mercado'],
+    url: 'https://mises.org/library/libertarian-manifesto',
+    portadaColor: '#161220', portadaTextoColor: '#AFA9EC',
+    anio: 1973, duracion: '420 páginas', destacado: true,
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780935870152-L.jpg',
+  },
+
+  // ── FRIEDMAN ───────────────────────────────────────────
+  {
     id: 'libertad-elegir',
     titulo: 'Libertad de elegir',
     descripcion: 'El libro más accesible del liberalismo económico moderno. Friedman y su esposa Rose argumentan a favor del libre mercado en áreas como educación, medicina y regulación.',
@@ -113,6 +151,32 @@ export const RECURSOS: Recurso[] = [
     anio: 1962, duracion: '230 páginas',
     imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780226264219-L.jpg',
   },
+
+  // ── SOWELL ─────────────────────────────────────────────
+  {
+    id: 'basic-economics',
+    titulo: 'Basic Economics',
+    descripcion: 'El mejor libro de economía para el público general. Sowell explica conceptos económicos fundamentales sin matemáticas ni jerga, con ejemplos del mundo real.',
+    tipo: 'libro', nivel: 'principiante', idioma: 'en', autorId: 'sowell',
+    temas: ['economia', 'precios', 'libre-mercado', 'politica'],
+    url: 'https://www.amazon.com/Basic-Economics-Thomas-Sowell/dp/0465060730',
+    portadaColor: '#1a1412', portadaTextoColor: '#F0997B',
+    anio: 2000, duracion: '700 páginas', destacado: true,
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780465060733-L.jpg',
+  },
+  {
+    id: 'conflict-of-visions',
+    titulo: 'A Conflict of Visions',
+    descripcion: 'Sowell explica por qué liberales y conservadores, libertarios y progresistas parecen hablar idiomas distintos. Identifica dos visiones del mundo radicalmente opuestas que subyacen a casi todos los debates políticos.',
+    tipo: 'libro', nivel: 'intermedio', idioma: 'en', autorId: 'sowell',
+    temas: ['filosofia-politica', 'ideologia', 'naturaleza-humana'],
+    url: 'https://www.amazon.com/Conflict-Visions-Ideological-Origins-Political/dp/0465002056',
+    portadaColor: '#1a1412', portadaTextoColor: '#F0997B',
+    anio: 1987, duracion: '296 páginas',
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780465002054-L.jpg',
+  },
+
+  // ── BASTIAT ────────────────────────────────────────────
   {
     id: 'la-ley',
     titulo: 'La ley',
@@ -122,7 +186,7 @@ export const RECURSOS: Recurso[] = [
     url: 'https://mises.org/library/law',
     portadaColor: '#1e1a0e', portadaTextoColor: '#FAC775',
     anio: 1850, duracion: '75 páginas', destacado: true,
-    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9781614279044-L.jpg',
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/5258843-M.jpg',
   },
   {
     id: 'lo-que-se-ve',
@@ -136,14 +200,77 @@ export const RECURSOS: Recurso[] = [
     imagenUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Bastiat.jpg/400px-Bastiat.jpg',
   },
   {
-    id: 'basic-economics',
-    titulo: 'Basic Economics',
-    descripcion: 'El mejor libro de economía para el público general. Sowell explica conceptos económicos fundamentales sin matemáticas ni jerga, con ejemplos del mundo real.',
-    tipo: 'libro', nivel: 'principiante', idioma: 'en', autorId: 'sowell',
-    temas: ['economia', 'precios', 'libre-mercado', 'politica'],
-    url: 'https://www.amazon.com/Basic-Economics-Thomas-Sowell/dp/0465060730',
-    portadaColor: '#1a1412', portadaTextoColor: '#F0997B',
-    anio: 2000, duracion: '700 páginas', destacado: true,
-    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780465060733-L.jpg',
+    id: 'sofismas-economicos',
+    titulo: 'Sofismas económicos',
+    descripcion: 'Una colección de ensayos satíricos y argumentativos donde Bastiat desmonta los argumentos proteccionistas e intervencionistas de su época con una lógica implacable y un humor devastador. Muchos de sus sofismas siguen vigentes hoy.',
+    tipo: 'libro', nivel: 'principiante', idioma: 'es', autorId: 'bastiat',
+    temas: ['proteccionismo', 'libre-comercio', 'estado', 'politica-economica'],
+    url: 'https://mises.org/library/economic-sophisms',
+    portadaColor: '#1e1a0e', portadaTextoColor: '#FAC775',
+    anio: 1845, duracion: '220 páginas',
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9781933550046-L.jpg',
+  },
+
+  // ── ADAM SMITH ─────────────────────────────────────────
+  {
+    id: 'riqueza-naciones',
+    titulo: 'La riqueza de las naciones',
+    descripcion: 'La obra fundacional de la economía moderna. Smith analiza la división del trabajo, el mercado, los precios y el rol del Estado con una profundidad que no ha sido superada. El punto de partida de todo el pensamiento económico liberal.',
+    tipo: 'libro', nivel: 'avanzado', idioma: 'es', autorId: 'smith',
+    temas: ['libre-mercado', 'division-del-trabajo', 'capital', 'estado'],
+    url: 'https://www.econlib.org/library/Smith/smWN.html',
+    portadaColor: '#0f1a14', portadaTextoColor: '#7EB8A4',
+    anio: 1776, duracion: '1000 páginas', destacado: true,
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780226763743-L.jpg',
+  },
+
+  // ── TOCQUEVILLE ────────────────────────────────────────
+  {
+    id: 'democracia-america',
+    titulo: 'La democracia en América',
+    descripcion: 'El análisis más penetrante de la democracia jamás escrito. Tocqueville observó la democracia americana con los ojos de un liberal europeo y anticipó tanto sus grandezas como sus peligros, incluyendo el "despotismo blando" del Estado benefactor.',
+    tipo: 'libro', nivel: 'avanzado', idioma: 'es', autorId: 'tocqueville',
+    temas: ['democracia', 'libertad', 'estado', 'sociedad-civil'],
+    url: 'https://www.gutenberg.org/ebooks/815',
+    portadaColor: '#1a1525', portadaTextoColor: '#B8A9D9',
+    anio: 1835, duracion: '900 páginas', destacado: true,
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780226805368-L.jpg',
+  },
+  {
+    id: 'antiguo-regimen',
+    titulo: 'El antiguo régimen y la revolución',
+    descripcion: 'Tocqueville demuestra que la Revolución Francesa no rompió con el pasado sino que aceleró la centralización del Estado que ya venía ocurriendo. Una lección sobre cómo las revoluciones a menudo consolidan el poder que dicen destruir.',
+    tipo: 'libro', nivel: 'intermedio', idioma: 'es', autorId: 'tocqueville',
+    temas: ['revolucion', 'estado', 'historia', 'centralizacion'],
+    url: 'https://www.gutenberg.org/ebooks/64816',
+    portadaColor: '#1a1525', portadaTextoColor: '#B8A9D9',
+    anio: 1856, duracion: '320 páginas',
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780226805368-L.jpg',
+  },
+
+  // ── MENGER ─────────────────────────────────────────────
+  {
+    id: 'principios-economia',
+    titulo: 'Principios de economía política',
+    descripcion: 'El libro que fundó la Escuela Austriaca. Menger introduce la teoría del valor subjetivo — el valor no está en los objetos sino en la mente de quien los valora — revolucionando la economía y abriendo el camino para Mises y Hayek.',
+    tipo: 'libro', nivel: 'avanzado', idioma: 'es', autorId: 'menger',
+    temas: ['valor-subjetivo', 'praxeologia', 'capital', 'precios'],
+    url: 'https://mises.org/library/principles-economics',
+    portadaColor: '#1a1210', portadaTextoColor: '#E8A598',
+    anio: 1871, duracion: '330 páginas', destacado: true,
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780814729564-L.jpg',
+  },
+
+  // ── SPENCER ────────────────────────────────────────────
+  {
+    id: 'individuo-contra-estado',
+    titulo: 'El individuo contra el Estado',
+    descripcion: 'La defensa más apasionada del individualismo del siglo XIX. Spencer argumenta que el crecimiento del Estado inevitablemente destruye la libertad individual, y que la evolución social espontánea produce mejores resultados que cualquier planificación.',
+    tipo: 'libro', nivel: 'intermedio', idioma: 'es', autorId: 'spencer',
+    temas: ['individualismo', 'estado', 'libertad', 'evolucion-social'],
+    url: 'https://www.gutenberg.org/ebooks/34700',
+    portadaColor: '#1a160e', portadaTextoColor: '#C4A882',
+    anio: 1884, duracion: '200 páginas',
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780865970625-L.jpg',
   },
 ];
