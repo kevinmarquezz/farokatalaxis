@@ -1,6 +1,6 @@
 [build]
   command = "ng build"
-  publish = "dist/faro-katalaxis/browser"
+  publish = "dist/FaroKatalaxis/browser"
 
 [[redirects]]
   from = "/*"
