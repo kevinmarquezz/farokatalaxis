@@ -14,6 +14,8 @@ export class Footer {
         { label: 'Inicio', href: '/' },
         { label: 'Biblioteca', href: '/biblioteca' },
         { label: 'Tracks', href: '/tracks' },
+        { label: 'Autores', href: '/autores' },
+        { label: 'Sobre nosotros', href: '/sobre-nosotros' },
       ]
     },
     // {

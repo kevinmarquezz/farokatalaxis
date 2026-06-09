@@ -19,8 +19,9 @@ export class Navbar implements OnInit {
 
   navLinks = [
     { label: 'Inicio', href: '/' },
+    { label: 'Sobre nosotros', href: '/sobre-nosotros' },
     { label: 'Biblioteca', href: '/biblioteca' },
-        { label: 'Autores', href: '/autores' },
+    { label: 'Autores', href: '/autores' },
     { label: 'Tracks', href: '/tracks' },
     // { label: 'Comunidad', href: '/comunidad' }
   ];
