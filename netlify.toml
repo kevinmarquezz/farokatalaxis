@@ -1,5 +1,5 @@
 [build]
-  command = "ng build"
+  command = "ng build --budgets=false"
   publish = "dist/faro-katalaxis/browser"
 
 [[redirects]]
