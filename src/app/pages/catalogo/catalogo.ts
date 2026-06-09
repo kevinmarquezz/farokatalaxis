@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Recurso, RecursoTipo, RecursoNivel } from '../../models/recurso.model';
 import { RecursosService, RecursoFiltros } from '../../services/recursos.service';
 import { AutoresService } from '../../services/autores-tracks.service';
-import { Autor } from '../../models/autor.model';
+import { SeoService } from '../../services/seo-service';
+import { Autor, EscuelaEconomica } from '../../models/autor.model';
 
 @Component({
   selector: 'app-catalogo',
@@ -15,12 +16,14 @@ export class Catalogo implements OnInit {
   selectedType = '';
   selectedAuthor = '';
   selectedDifficulty = '';
+  selectedEscuela = '';
   isFilterOpen = false;
   imgLoaded: Record<string, boolean> = {};
 
   allRecursos: Recurso[] = [];
   filteredResources: Recurso[] = [];
   autoresMap: Record<string, Autor> = {};
+  allAutores: Autor[] = [];
 
   types = [
     { value: 'libro', label: 'Libros' },
@@ -32,6 +35,12 @@ export class Catalogo implements OnInit {
 
   authors: Autor[] = [];
 
+  escuelas = [
+    { value: 'austriaca', label: 'Escuela Austriaca' },
+    { value: 'chicago', label: 'Escuela de Chicago' },
+    { value: 'liberal-clasico', label: 'Liberalismo Clásico' },
+  ];
+
   difficulties = [
     { value: 'principiante', label: 'Principiante' },
     { value: 'intermedio', label: 'Intermedio' },
@@ -41,30 +50,56 @@ export class Catalogo implements OnInit {
   constructor(
     private recursosService: RecursosService,
     private autoresService: AutoresService,
+    private seo: SeoService,
   ) {}
 
   ngOnInit(): void {
+    this.seo.setPage('Biblioteca', 'Explorá nuestra colección de recursos sobre economía liberal, Escuela Austriaca y filosofía política.');
+
     this.recursosService.getAll().subscribe(recursos => {
       this.allRecursos = recursos;
       this.filteredResources = recursos;
     });
 
     this.autoresService.getAll().subscribe(autores => {
+      this.allAutores = autores;
       this.authors = autores;
       this.autoresMap = Object.fromEntries(autores.map(a => [a.id, a]));
     });
   }
 
   filterResources(): void {
-    const filtros: RecursoFiltros = {};
+    // Filtrar autores por escuela si hay escuela seleccionada
+    if (this.selectedEscuela) {
+      const autoresDeLaEscuela = this.allAutores
+        .filter(a => a.escuela === this.selectedEscuela)
+        .map(a => a.id);
+      this.authors = this.allAutores.filter(a => a.escuela === this.selectedEscuela);
 
+      // Si el autor seleccionado no pertenece a la escuela, lo limpiamos
+      if (this.selectedAuthor && !autoresDeLaEscuela.includes(this.selectedAuthor)) {
+        this.selectedAuthor = '';
+      }
+    } else {
+      this.authors = this.allAutores;
+    }
+
+    const filtros: RecursoFiltros = {};
     if (this.selectedType) filtros.tipo = this.selectedType as RecursoTipo;
     if (this.selectedAuthor) filtros.autorId = this.selectedAuthor;
     if (this.selectedDifficulty) filtros.nivel = this.selectedDifficulty as RecursoNivel;
     if (this.searchQuery) filtros.busqueda = this.searchQuery;
 
     this.recursosService.filtrar(filtros).subscribe(recursos => {
-      this.filteredResources = recursos;
+      // Aplicar filtro de escuela sobre los resultados
+      if (this.selectedEscuela) {
+        const autoresDeLaEscuela = this.allAutores
+          .filter(a => a.escuela === this.selectedEscuela)
+          .map(a => a.id);
+        this.filteredResources = recursos.filter(r => autoresDeLaEscuela.includes(r.autorId));
+      } else {
+        this.filteredResources = recursos;
+      }
     });
   }
 
@@ -73,6 +108,8 @@ export class Catalogo implements OnInit {
     this.selectedType = '';
     this.selectedAuthor = '';
     this.selectedDifficulty = '';
+    this.selectedEscuela = '';
+    this.authors = this.allAutores;
     this.filteredResources = [...this.allRecursos];
   }
 
@@ -99,19 +136,20 @@ export class Catalogo implements OnInit {
     return `difficulty-${difficulty}`;
   }
 
-onImgLoad(id: string): void {
-  this.imgLoaded[id] = true;
-}
+  onImgLoad(id: string): void {
+    this.imgLoaded[id] = true;
+  }
 
-onImgError(event: Event): void {
-  (event.target as HTMLImageElement).style.display = 'none';
-}
+  onImgError(event: Event): void {
+    (event.target as HTMLImageElement).style.display = 'none';
+  }
 
   getActiveFiltersCount(): number {
     let count = 0;
     if (this.selectedType) count++;
     if (this.selectedAuthor) count++;
     if (this.selectedDifficulty) count++;
+    if (this.selectedEscuela) count++;
     return count;
   }
 

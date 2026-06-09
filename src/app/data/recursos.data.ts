@@ -1,11 +1,12 @@
 import { Recurso } from '../models/recurso.model';
 
 export const RECURSOS: Recurso[] = [
+
   // ── MISES ──────────────────────────────────────────────
   {
     id: 'accion-humana',
     titulo: 'La acción humana',
-    descripcion: 'La obra magna de Mises. Un tratado completo de economía construido desde la praxeología — la ciencia de la acción humana. Demuestra por qué el socialismo es imposible y el libre mercado es el único sistema racional de organización económica.',
+    descripcion: 'La obra magna de Mises. Un tratado completo de economía construido desde la praxeología. Demuestra por qué el socialismo es imposible y el libre mercado es el único sistema racional de organización económica.',
     tipo: 'libro', nivel: 'avanzado', idioma: 'es', autorId: 'mises',
     temas: ['praxeologia', 'socialismo', 'libre-mercado', 'capital'],
     url: 'https://mises.org/library/human-action-0',
@@ -38,13 +39,35 @@ export const RECURSOS: Recurso[] = [
   {
     id: 'socialismo-mises',
     titulo: 'Socialismo',
-    descripcion: 'La refutación más completa del socialismo jamás escrita. Mises demuestra que sin propiedad privada de los medios de producción es imposible el cálculo económico racional, condenando al socialismo al caos y la pobreza.',
+    descripcion: 'La refutación más completa del socialismo jamás escrita. Mises demuestra que sin propiedad privada de los medios de producción es imposible el cálculo económico racional.',
     tipo: 'libro', nivel: 'avanzado', idioma: 'es', autorId: 'mises',
     temas: ['socialismo', 'calculo-economico', 'propiedad-privada'],
     url: 'https://mises.org/library/socialism-economic-and-sociological-analysis',
     portadaColor: '#1e1a12', portadaTextoColor: '#c9963a',
     anio: 1922, duracion: '570 páginas', destacado: true,
     imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780913966624-L.jpg',
+  },
+  {
+    id: 'caos-intervencionista',
+    titulo: 'El caos intervencionista',
+    descripcion: 'Mises demuestra que la intervención estatal en la economía no produce los resultados buscados sino el caos, y que toda intervención genera la necesidad de más intervención hasta llegar al socialismo pleno.',
+    tipo: 'libro', nivel: 'intermedio', idioma: 'es', autorId: 'mises',
+    temas: ['intervencionismo', 'estado', 'libre-mercado', 'socialismo'],
+    url: 'https://mises.org/library/interventionism-economic-analysis',
+    portadaColor: '#1e1a12', portadaTextoColor: '#c9963a',
+    anio: 1940, duracion: '120 páginas',
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780910884051-L.jpg',
+  },
+  {
+    id: 'mentalidad-anticapitalista',
+    titulo: 'La mentalidad anticapitalista',
+    descripcion: 'Mises analiza desde la psicología y la sociología por qué tanta gente odia el capitalismo a pesar de que es el sistema que les dio prosperidad. Una obra breve y accesible que explica el resentimiento como motor del anticapitalismo.',
+    tipo: 'libro', nivel: 'principiante', idioma: 'es', autorId: 'mises',
+    temas: ['capitalismo', 'psicologia', 'resentimiento', 'libre-mercado'],
+    url: 'https://mises.org/library/anti-capitalistic-mentality',
+    portadaColor: '#1e1a12', portadaTextoColor: '#c9963a',
+    anio: 1956, duracion: '114 páginas',
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780910884327-L.jpg',
   },
 
   // ── HAYEK ──────────────────────────────────────────────
@@ -92,6 +115,28 @@ export const RECURSOS: Recurso[] = [
     anio: 1988, duracion: '194 páginas',
     imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780226320663-L.jpg',
   },
+  {
+    id: 'precios-produccion',
+    titulo: 'Precios y producción',
+    descripcion: 'La obra técnica central de Hayek. Desarrolla la teoría austriaca del ciclo económico y explica cómo la expansión crediticia artificial genera los booms y las crisis que le siguen.',
+    tipo: 'libro', nivel: 'avanzado', idioma: 'es', autorId: 'hayek',
+    temas: ['ciclo-economico', 'credito', 'capital', 'precios'],
+    url: 'https://mises.org/library/prices-and-production-and-other-works',
+    portadaColor: '#121a1e', portadaTextoColor: '#5DCAA5',
+    anio: 1931, duracion: '280 páginas',
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780945466277-L.jpg',
+  },
+  {
+    id: 'desnacionalizacion-dinero',
+    titulo: 'La desnacionalización del dinero',
+    descripcion: 'Hayek propone eliminar el monopolio estatal sobre la emisión de dinero y permitir la competencia entre monedas privadas. Una idea radical que anticipa décadas los debates sobre criptomonedas y banca libre.',
+    tipo: 'libro', nivel: 'avanzado', idioma: 'es', autorId: 'hayek',
+    temas: ['dinero', 'banca', 'estado', 'libre-mercado'],
+    url: 'https://mises.org/library/denationalisation-money-argument-refined',
+    portadaColor: '#121a1e', portadaTextoColor: '#5DCAA5',
+    anio: 1976, duracion: '160 páginas',
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780255363501-L.jpg',
+  },
 
   // ── ROTHBARD ───────────────────────────────────────────
   {
@@ -119,13 +164,24 @@ export const RECURSOS: Recurso[] = [
   {
     id: 'por-una-nueva-libertad',
     titulo: 'Por una nueva libertad',
-    descripcion: 'El manifiesto libertario de Rothbard. Aplica los principios del libertarismo a problemas concretos: educación, salud, policía, dinero y relaciones exteriores. El texto más accesible para entender el anarcocapitalismo en la práctica.',
+    descripcion: 'El manifiesto libertario de Rothbard. Aplica los principios del libertarismo a problemas concretos: educación, salud, policía, dinero y relaciones exteriores.',
     tipo: 'libro', nivel: 'intermedio', idioma: 'es', autorId: 'rothbard',
     temas: ['anarcocapitalismo', 'libertad', 'estado', 'libre-mercado'],
     url: 'https://mises.org/library/libertarian-manifesto',
     portadaColor: '#161220', portadaTextoColor: '#AFA9EC',
     anio: 1973, duracion: '420 páginas', destacado: true,
     imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780935870152-L.jpg',
+  },
+  {
+    id: 'caso-contra-banco-central',
+    titulo: 'El caso contra el Banco Central',
+    descripcion: 'Rothbard desmonta la banca de reserva fraccionaria y el banco central como instituciones que generan inflación, ciclos económicos y favorecen al Estado y a los bancos a costa del resto de la sociedad.',
+    tipo: 'libro', nivel: 'intermedio', idioma: 'es', autorId: 'rothbard',
+    temas: ['banca', 'dinero', 'inflacion', 'estado'],
+    url: 'https://mises.org/library/case-against-fed',
+    portadaColor: '#161220', portadaTextoColor: '#AFA9EC',
+    anio: 1994, duracion: '158 páginas',
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780945466178-L.jpg',
   },
 
   // ── FRIEDMAN ───────────────────────────────────────────
@@ -151,6 +207,17 @@ export const RECURSOS: Recurso[] = [
     anio: 1962, duracion: '230 páginas',
     imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780226264219-L.jpg',
   },
+  {
+    id: 'historia-monetaria',
+    titulo: 'Una historia monetaria de Estados Unidos',
+    descripcion: 'La obra maestra de Friedman y Anna Schwartz. Demuestra que la Gran Depresión fue causada por errores de la Reserva Federal y no por el libre mercado, revolucionando la macroeconomía moderna.',
+    tipo: 'libro', nivel: 'avanzado', idioma: 'en', autorId: 'friedman',
+    temas: ['dinero', 'banca', 'historia-economica', 'ciclo-economico'],
+    url: 'https://press.princeton.edu/books/paperback/9780691003542/a-monetary-history-of-the-united-states-1867-1960',
+    portadaColor: '#121810', portadaTextoColor: '#97C459',
+    anio: 1963, duracion: '860 páginas',
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780691003542-L.jpg',
+  },
 
   // ── SOWELL ─────────────────────────────────────────────
   {
@@ -167,7 +234,7 @@ export const RECURSOS: Recurso[] = [
   {
     id: 'conflict-of-visions',
     titulo: 'A Conflict of Visions',
-    descripcion: 'Sowell explica por qué liberales y conservadores, libertarios y progresistas parecen hablar idiomas distintos. Identifica dos visiones del mundo radicalmente opuestas que subyacen a casi todos los debates políticos.',
+    descripcion: 'Sowell explica por qué liberales y conservadores parecen hablar idiomas distintos. Identifica dos visiones del mundo radicalmente opuestas que subyacen a casi todos los debates políticos.',
     tipo: 'libro', nivel: 'intermedio', idioma: 'en', autorId: 'sowell',
     temas: ['filosofia-politica', 'ideologia', 'naturaleza-humana'],
     url: 'https://www.amazon.com/Conflict-Visions-Ideological-Origins-Political/dp/0465002056',
@@ -175,18 +242,29 @@ export const RECURSOS: Recurso[] = [
     anio: 1987, duracion: '296 páginas',
     imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780465002054-L.jpg',
   },
+  {
+    id: 'vision-ungido',
+    titulo: 'La visión del ungido',
+    descripcion: 'Sowell analiza la mentalidad de las élites intelectuales que creen tener una visión superior y por eso justifican imponer sus ideas al resto. Una disección del progresismo contemporáneo.',
+    tipo: 'libro', nivel: 'intermedio', idioma: 'es', autorId: 'sowell',
+    temas: ['intelectuales', 'ideologia', 'estado', 'politica'],
+    url: 'https://www.amazon.com/Vision-Anointed-Self-Congratulation-Social-Policy/dp/0465089941',
+    portadaColor: '#1a1412', portadaTextoColor: '#F0997B',
+    anio: 1995, duracion: '304 páginas',
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780465089949-L.jpg',
+  },
 
   // ── BASTIAT ────────────────────────────────────────────
   {
     id: 'la-ley',
     titulo: 'La ley',
-    descripcion: 'El ensayo más leído del liberalismo clásico. Bastiat define qué es la ley, cuándo se pervierte y por qué el Estado no puede redistribuir sin robar. Lectura obligatoria para todo liberal.',
+    descripcion: 'El ensayo más leído del liberalismo clásico. Bastiat define qué es la ley, cuándo se pervierte y por qué el Estado no puede redistribuir sin robar.',
     tipo: 'ensayo', nivel: 'principiante', idioma: 'es', autorId: 'bastiat',
     temas: ['ley', 'estado', 'propiedad', 'libertad'],
     url: 'https://mises.org/library/law',
     portadaColor: '#1e1a0e', portadaTextoColor: '#FAC775',
     anio: 1850, duracion: '75 páginas', destacado: true,
-    imagenUrl: 'https://covers.openlibrary.org/b/isbn/5258843-M.jpg',
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9781614279044-L.jpg',
   },
   {
     id: 'lo-que-se-ve',
@@ -202,7 +280,7 @@ export const RECURSOS: Recurso[] = [
   {
     id: 'sofismas-economicos',
     titulo: 'Sofismas económicos',
-    descripcion: 'Una colección de ensayos satíricos y argumentativos donde Bastiat desmonta los argumentos proteccionistas e intervencionistas de su época con una lógica implacable y un humor devastador. Muchos de sus sofismas siguen vigentes hoy.',
+    descripcion: 'Una colección de ensayos donde Bastiat desmonta los argumentos proteccionistas e intervencionistas con lógica implacable y humor devastador.',
     tipo: 'libro', nivel: 'principiante', idioma: 'es', autorId: 'bastiat',
     temas: ['proteccionismo', 'libre-comercio', 'estado', 'politica-economica'],
     url: 'https://mises.org/library/economic-sophisms',
@@ -215,7 +293,7 @@ export const RECURSOS: Recurso[] = [
   {
     id: 'riqueza-naciones',
     titulo: 'La riqueza de las naciones',
-    descripcion: 'La obra fundacional de la economía moderna. Smith analiza la división del trabajo, el mercado, los precios y el rol del Estado con una profundidad que no ha sido superada. El punto de partida de todo el pensamiento económico liberal.',
+    descripcion: 'La obra fundacional de la economía moderna. Smith analiza la división del trabajo, el mercado, los precios y el rol del Estado. El punto de partida de todo el pensamiento económico liberal.',
     tipo: 'libro', nivel: 'avanzado', idioma: 'es', autorId: 'smith',
     temas: ['libre-mercado', 'division-del-trabajo', 'capital', 'estado'],
     url: 'https://www.econlib.org/library/Smith/smWN.html',
@@ -223,12 +301,23 @@ export const RECURSOS: Recurso[] = [
     anio: 1776, duracion: '1000 páginas', destacado: true,
     imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780226763743-L.jpg',
   },
+  {
+    id: 'sentimientos-morales',
+    titulo: 'La teoría de los sentimientos morales',
+    descripcion: 'La primera gran obra de Smith, donde desarrolla una teoría de la moral basada en la simpatía y el espectador imparcial. Imprescindible para entender el fundamento ético de su pensamiento económico.',
+    tipo: 'libro', nivel: 'avanzado', idioma: 'es', autorId: 'smith',
+    temas: ['filosofia-moral', 'simpatia', 'etica', 'naturaleza-humana'],
+    url: 'https://www.econlib.org/library/Smith/smMS.html',
+    portadaColor: '#0f1a14', portadaTextoColor: '#7EB8A4',
+    anio: 1759, duracion: '550 páginas',
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780140432626-L.jpg',
+  },
 
   // ── TOCQUEVILLE ────────────────────────────────────────
   {
     id: 'democracia-america',
     titulo: 'La democracia en América',
-    descripcion: 'El análisis más penetrante de la democracia jamás escrito. Tocqueville observó la democracia americana con los ojos de un liberal europeo y anticipó tanto sus grandezas como sus peligros, incluyendo el "despotismo blando" del Estado benefactor.',
+    descripcion: 'El análisis más penetrante de la democracia jamás escrito. Tocqueville anticipó tanto las grandezas como los peligros de la democracia, incluyendo el "despotismo blando" del Estado benefactor.',
     tipo: 'libro', nivel: 'avanzado', idioma: 'es', autorId: 'tocqueville',
     temas: ['democracia', 'libertad', 'estado', 'sociedad-civil'],
     url: 'https://www.gutenberg.org/ebooks/815',
@@ -239,7 +328,7 @@ export const RECURSOS: Recurso[] = [
   {
     id: 'antiguo-regimen',
     titulo: 'El antiguo régimen y la revolución',
-    descripcion: 'Tocqueville demuestra que la Revolución Francesa no rompió con el pasado sino que aceleró la centralización del Estado que ya venía ocurriendo. Una lección sobre cómo las revoluciones a menudo consolidan el poder que dicen destruir.',
+    descripcion: 'Tocqueville demuestra que la Revolución Francesa aceleró la centralización del Estado que ya venía ocurriendo. Una lección sobre cómo las revoluciones a menudo consolidan el poder que dicen destruir.',
     tipo: 'libro', nivel: 'intermedio', idioma: 'es', autorId: 'tocqueville',
     temas: ['revolucion', 'estado', 'historia', 'centralizacion'],
     url: 'https://www.gutenberg.org/ebooks/64816',
@@ -252,7 +341,7 @@ export const RECURSOS: Recurso[] = [
   {
     id: 'principios-economia',
     titulo: 'Principios de economía política',
-    descripcion: 'El libro que fundó la Escuela Austriaca. Menger introduce la teoría del valor subjetivo — el valor no está en los objetos sino en la mente de quien los valora — revolucionando la economía y abriendo el camino para Mises y Hayek.',
+    descripcion: 'El libro que fundó la Escuela Austriaca. Menger introduce la teoría del valor subjetivo, revolucionando la economía y abriendo el camino para Mises y Hayek.',
     tipo: 'libro', nivel: 'avanzado', idioma: 'es', autorId: 'menger',
     temas: ['valor-subjetivo', 'praxeologia', 'capital', 'precios'],
     url: 'https://mises.org/library/principles-economics',
@@ -261,16 +350,138 @@ export const RECURSOS: Recurso[] = [
     imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780814729564-L.jpg',
   },
 
+  // ── BÖHM-BAWERK ────────────────────────────────────────
+  {
+    id: 'capital-interes',
+    titulo: 'Capital e interés',
+    descripcion: 'La obra central de Böhm-Bawerk. Desarrolla la teoría austriaca del capital y explica el origen del interés como preferencia temporal — la gente valora más los bienes presentes que los futuros.',
+    tipo: 'libro', nivel: 'avanzado', idioma: 'es', autorId: 'bohm-bawerk',
+    temas: ['capital', 'interes', 'tiempo', 'valor-subjetivo'],
+    url: 'https://mises.org/library/capital-and-interest',
+    portadaColor: '#1a1408', portadaTextoColor: '#D4A96A',
+    anio: 1884, duracion: '480 páginas',
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780910884075-L.jpg',
+  },
+  {
+    id: 'teoria-explotacion',
+    titulo: 'La teoría de la explotación del socialismo y el comunismo',
+    descripcion: 'La crítica más rigurosa a la teoría marxista de la plusvalía. Böhm-Bawerk demuestra que el interés no es explotación sino el precio del tiempo, destruyendo el fundamento económico del marxismo.',
+    tipo: 'libro', nivel: 'avanzado', idioma: 'es', autorId: 'bohm-bawerk',
+    temas: ['marxismo', 'capital', 'plusvalia', 'valor-subjetivo'],
+    url: 'https://mises.org/library/exploitation-theory-socialism-communism',
+    portadaColor: '#1a1408', portadaTextoColor: '#D4A96A',
+    anio: 1884, duracion: '220 páginas',
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780910884082-L.jpg',
+  },
+
+  // ── KIRZNER ────────────────────────────────────────────
+  {
+    id: 'competencia-empresarialidad',
+    titulo: 'Competencia y empresarialidad',
+    descripcion: 'La contribución más importante de Kirzner a la teoría económica. El empresario no es un optimizador sino un descubridor: detecta oportunidades de ganancia que otros no ven y al hacerlo coordina el mercado.',
+    tipo: 'libro', nivel: 'avanzado', idioma: 'es', autorId: 'kirzner',
+    temas: ['empresarialidad', 'mercado', 'conocimiento', 'precios'],
+    url: 'https://www.amazon.com/Competition-Entrepreneurship-Israel-Kirzner/dp/0226437760',
+    portadaColor: '#0e1a18', portadaTextoColor: '#89C4B8',
+    anio: 1973, duracion: '246 páginas',
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780226437767-L.jpg',
+  },
+
+  // ── STIGLER ────────────────────────────────────────────
+  {
+    id: 'ciudadano-estado',
+    titulo: 'El ciudadano y el Estado',
+    descripcion: 'Stigler desarrolla la teoría de la captura regulatoria: las agencias creadas para regular industrias terminan siendo controladas por ellas. Un argumento devastador contra el intervencionismo bien intencionado.',
+    tipo: 'libro', nivel: 'intermedio', idioma: 'es', autorId: 'stigler',
+    temas: ['regulacion', 'estado', 'captura-regulatoria', 'libre-mercado'],
+    url: 'https://www.amazon.com/Citizen-State-Essays-Regulation/dp/0226774538',
+    portadaColor: '#121a10', portadaTextoColor: '#A8C97F',
+    anio: 1975, duracion: '240 páginas',
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780226774534-L.jpg',
+  },
+
   // ── SPENCER ────────────────────────────────────────────
   {
     id: 'individuo-contra-estado',
     titulo: 'El individuo contra el Estado',
-    descripcion: 'La defensa más apasionada del individualismo del siglo XIX. Spencer argumenta que el crecimiento del Estado inevitablemente destruye la libertad individual, y que la evolución social espontánea produce mejores resultados que cualquier planificación.',
+    descripcion: 'La defensa más apasionada del individualismo del siglo XIX. Spencer argumenta que el crecimiento del Estado inevitablemente destruye la libertad individual.',
     tipo: 'libro', nivel: 'intermedio', idioma: 'es', autorId: 'spencer',
     temas: ['individualismo', 'estado', 'libertad', 'evolucion-social'],
     url: 'https://www.gutenberg.org/ebooks/34700',
     portadaColor: '#1a160e', portadaTextoColor: '#C4A882',
     anio: 1884, duracion: '200 páginas',
     imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780865970625-L.jpg',
+  },
+  {
+    id: 'estatica-social',
+    titulo: 'Estática social',
+    descripcion: 'La primera gran obra de Spencer. Desarrolla una filosofía política basada en la ley igual de libertad: cada persona tiene derecho a hacer lo que quiera siempre que no interfiera con la igual libertad de los demás.',
+    tipo: 'libro', nivel: 'avanzado', idioma: 'es', autorId: 'spencer',
+    temas: ['filosofia-politica', 'libertad', 'derechos-naturales', 'individualismo'],
+    url: 'https://www.gutenberg.org/ebooks/4573',
+    portadaColor: '#1a160e', portadaTextoColor: '#C4A882',
+    anio: 1851, duracion: '480 páginas',
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780865970625-L.jpg',
+  },
+
+  // ── LOCKE ──────────────────────────────────────────────
+  {
+    id: 'segundo-tratado-gobierno',
+    titulo: 'Segundo tratado sobre el gobierno civil',
+    descripcion: 'El texto fundacional del liberalismo político. Locke establece que el poder político deriva del consentimiento de los gobernados y que los individuos tienen derechos naturales a la vida, la libertad y la propiedad que el Estado no puede violar.',
+    tipo: 'libro', nivel: 'intermedio', idioma: 'es', autorId: 'locke',
+    temas: ['derechos-naturales', 'propiedad', 'gobierno', 'libertad'],
+    url: 'https://www.gutenberg.org/ebooks/7370',
+    portadaColor: '#0e1620', portadaTextoColor: '#85B7EB',
+    anio: 1689, duracion: '180 páginas', destacado: true,
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780521357302-L.jpg',
+  },
+  {
+    id: 'carta-tolerancia',
+    titulo: 'Carta sobre la tolerancia',
+    descripcion: 'Locke argumenta que el Estado no tiene autoridad sobre las conciencias de los ciudadanos y que la tolerancia religiosa es necesaria para la paz civil. Uno de los textos fundacionales del liberalismo.',
+    tipo: 'ensayo', nivel: 'principiante', idioma: 'es', autorId: 'locke',
+    temas: ['tolerancia', 'libertad-religiosa', 'estado', 'conciencia'],
+    url: 'https://www.gutenberg.org/ebooks/7176',
+    portadaColor: '#0e1620', portadaTextoColor: '#85B7EB',
+    anio: 1689, duracion: '60 páginas',
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780915145539-L.jpg',
+  },
+
+  // ── CONSTANT ───────────────────────────────────────────
+  {
+    id: 'libertad-antiguos-modernos',
+    titulo: 'De la libertad de los antiguos comparada con la de los modernos',
+    descripcion: 'El texto más importante de Constant. Distingue entre la libertad política de los antiguos — participar en el gobierno — y la libertad civil de los modernos — vivir sin interferencia del Estado. Una distinción que define el liberalismo hasta hoy.',
+    tipo: 'ensayo', nivel: 'principiante', idioma: 'es', autorId: 'constant',
+    temas: ['libertad', 'democracia', 'estado', 'liberalismo'],
+    url: 'https://www.libertarianism.org/publications/essays/lectures-politics-constitutional-law',
+    portadaColor: '#121825', portadaTextoColor: '#9DB8D2',
+    anio: 1819, duracion: '40 páginas', destacado: true,
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780521317221-L.jpg',
+  },
+
+  // ── MILL ───────────────────────────────────────────────
+  {
+    id: 'sobre-libertad',
+    titulo: 'Sobre la libertad',
+    descripcion: 'La defensa más influyente de la libertad individual jamás escrita. Mill argumenta que el único fundamento legítimo para restringir la libertad de alguien es evitar que dañe a otros — el principio del daño.',
+    tipo: 'libro', nivel: 'principiante', idioma: 'es', autorId: 'mill',
+    temas: ['libertad', 'individualismo', 'estado', 'democracia'],
+    url: 'https://www.gutenberg.org/ebooks/34901',
+    portadaColor: '#1a1510', portadaTextoColor: '#C9B89A',
+    anio: 1859, duracion: '130 páginas', destacado: true,
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780140432077-L.jpg',
+  },
+  {
+    id: 'principios-economia-politica',
+    titulo: 'Principios de economía política',
+    descripcion: 'El tratado económico más influyente del siglo XIX. Mill sintetiza la economía clásica y analiza la producción, distribución y el rol del Estado con una claridad que lo convirtió en el manual de economía dominante durante décadas.',
+    tipo: 'libro', nivel: 'avanzado', idioma: 'es', autorId: 'mill',
+    temas: ['economia', 'produccion', 'distribucion', 'libre-mercado'],
+    url: 'https://www.econlib.org/library/Mill/mlP.html',
+    portadaColor: '#1a1510', portadaTextoColor: '#C9B89A',
+    anio: 1848, duracion: '1000 páginas',
+    imagenUrl: 'https://covers.openlibrary.org/b/isbn/9780140432085-L.jpg',
   },
 ];

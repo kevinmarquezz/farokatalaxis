@@ -4,6 +4,7 @@ import { LearningTrack, TrackPaso, Autor } from '../../models/autor.model';
 import { Recurso } from '../../models/recurso.model';
 import { TracksService, AutoresService } from '../../services/autores-tracks.service';
 import { RecursosService } from '../../services/recursos.service';
+import { SeoService } from '../../services/seo-service';
 
 interface PasoConRecurso {
   paso: TrackPaso;
@@ -40,6 +41,7 @@ export class Track implements OnInit {
     private tracksService: TracksService,
     private recursosService: RecursosService,
     private autoresService: AutoresService,
+    private seo: SeoService
   ) {}
 
   ngOnInit(): void {
@@ -68,6 +70,9 @@ export class Track implements OnInit {
           this.cargando = false;
         });
       });
+
+      this.seo.setPage(track.titulo, track.descripcion);
+
     });
   }
 }

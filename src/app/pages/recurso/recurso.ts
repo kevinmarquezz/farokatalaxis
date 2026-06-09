@@ -4,6 +4,7 @@ import { Recurso } from '../../models/recurso.model';
 import { RecursosService } from '../../services/recursos.service';
 import { AutoresService } from '../../services/autores-tracks.service';
 import { Autor } from '../../models/autor.model';
+import { SeoService } from '../../services/seo-service';
 
 @Component({
   selector: 'app-recurso',
@@ -63,6 +64,7 @@ export class RecursoComponent implements OnInit {
     private router: Router,
     private recursosService: RecursosService,
     private autoresService: AutoresService,
+    private seo: SeoService
   ) {}
 
   ngOnInit(): void {
@@ -101,7 +103,11 @@ export class RecursoComponent implements OnInit {
         const unicos = mezclados.filter((r, i, arr) => arr.findIndex(x => x.id === r.id) === i);
         this.relacionados = unicos.slice(0, 3);
       });
+      
+      this.seo.setPage(recurso.titulo, recurso.descripcion);
+
     });
+
   }
 
   getAutorNombre(autorId: string): string {

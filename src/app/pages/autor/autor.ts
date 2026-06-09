@@ -4,6 +4,7 @@ import { Autor } from '../../models/autor.model';
 import { Recurso } from '../../models/recurso.model';
 import { AutoresService } from '../../services/autores-tracks.service';
 import { RecursosService } from '../../services/recursos.service';
+import { SeoService } from '../../services/seo-service';
 
 @Component({
   selector: 'app-autor',
@@ -33,6 +34,7 @@ export class AutorComponent implements OnInit {
     private router: Router,
     private autoresService: AutoresService,
     private recursosService: RecursosService,
+    private seo: SeoService
   ) {}
 
   ngOnInit(): void {
@@ -47,6 +49,9 @@ export class AutorComponent implements OnInit {
         this.recursos = recursos;
         this.cargando = false;
       });
+
+      this.seo.setPage(autor.nombre, autor.descripcion);
+
     });
   }
 }

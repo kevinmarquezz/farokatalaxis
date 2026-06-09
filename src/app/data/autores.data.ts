@@ -1,6 +1,7 @@
 import { Autor } from '../models/autor.model';
 
 export const AUTORES: Autor[] = [
+  // ── ESCUELA AUSTRIACA ──────────────────────────────────
   {
     id: 'mises',
     nombre: 'Ludwig von Mises',
@@ -38,6 +39,26 @@ export const AUTORES: Autor[] = [
     fotoUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/9b/Carl_Menger_Portrait_ONB_cropped.png',
   },
   {
+    id: 'bohm-bawerk',
+    nombre: 'Eugen von Böhm-Bawerk',
+    descripcion: 'Uno de los grandes sistematizadores de la Escuela Austriaca. Desarrolló la teoría austriaca del capital y el interés, y escribió la crítica más demoledora de la teoría de la explotación marxista.',
+    escuela: 'austriaca',
+    wikipedia: 'https://es.wikipedia.org/wiki/Eugen_von_B%C3%B6hm-Bawerk',
+    color: '#D4A96A',
+    fotoUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/10/Eugen_von_B%C3%B6hm-Bawerk_1896_Portrait_cropped.png',
+  },
+  {
+    id: 'kirzner',
+    nombre: 'Israel Kirzner',
+    descripcion: 'Principal teórico austriaco de la segunda mitad del siglo XX. Su teoría del empresario como descubridor de oportunidades de ganancia es la contribución austriaca más importante a la teoría del mercado.',
+    escuela: 'austriaca',
+    wikipedia: 'https://es.wikipedia.org/wiki/Israel_Kirzner',
+    color: '#89C4B8',
+    fotoUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Israel_Kirzner.jpg',
+  },
+
+  // ── ESCUELA DE CHICAGO ─────────────────────────────────
+  {
     id: 'friedman',
     nombre: 'Milton Friedman',
     descripcion: 'Premio Nobel de Economía 1976. Líder de la Escuela de Chicago. Defensor del libre mercado, la moneda sana y la educación con vouchers.',
@@ -55,6 +76,17 @@ export const AUTORES: Autor[] = [
     color: '#F0997B',
     fotoUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Thomas_Sowell_cropped.jpg',
   },
+  {
+    id: 'stigler',
+    nombre: 'George Stigler',
+    descripcion: 'Premio Nobel de Economía 1982. Pionero de la economía de la regulación. Demostró que las agencias reguladoras terminan siendo capturadas por las industrias que supuestamente regulan.',
+    escuela: 'chicago',
+    wikipedia: 'https://es.wikipedia.org/wiki/George_Stigler',
+    color: '#A8C97F',
+    fotoUrl: 'https://upload.wikimedia.org/wikipedia/en/c/c7/George_Stigler.jpg',
+  },
+
+  // ── LIBERALISMO CLÁSICO ────────────────────────────────
   {
     id: 'bastiat',
     nombre: 'Frédéric Bastiat',
@@ -99,5 +131,23 @@ export const AUTORES: Autor[] = [
     wikipedia: 'https://es.wikipedia.org/wiki/Herbert_Spencer',
     color: '#C4A882',
     fotoUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Herbert_Spencer.jpg',
+  },
+  {
+    id: 'constant',
+    nombre: 'Benjamin Constant',
+    descripcion: 'Pensador político franco-suizo del siglo XIX. Su distinción entre la libertad de los antiguos y la libertad de los modernos es uno de los textos fundacionales del liberalismo político.',
+    escuela: 'liberal-clasico',
+    wikipedia: 'https://es.wikipedia.org/wiki/Benjamin_Constant',
+    color: '#9DB8D2',
+    fotoUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/98/Henri-Benjamin_Constant_de_Rebecque.png',
+  },
+  {
+    id: 'mill',
+    nombre: 'John Stuart Mill',
+    descripcion: 'Filósofo y economista inglés del siglo XIX. Su ensayo "Sobre la Libertad" es la defensa más influyente de la libertad individual y los límites del poder del Estado sobre el individuo.',
+    escuela: 'liberal-clasico',
+    wikipedia: 'https://es.wikipedia.org/wiki/John_Stuart_Mill',
+    color: '#C9B89A',
+    fotoUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/99/John_Stuart_Mill_by_London_Stereoscopic_Company%2C_c1870.jpg',
   },
 ];

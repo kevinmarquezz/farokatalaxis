@@ -665,3 +665,10 @@ $shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   &:hover { opacity: 0.75; }
 }
  
+.difficulty-btn {
+  &.active {
+    &:nth-child(1) { background: #c9963a; border-color: #c9963a; color: white; }
+    &:nth-child(2) { background: #97C459; border-color: #97C459; color: white; }
+    &:nth-child(3) { background: #85B7EB; border-color: #85B7EB; color: white; }
+  }
+}

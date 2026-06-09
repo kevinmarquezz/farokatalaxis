@@ -19,6 +19,7 @@ import { Footer } from './shared/footer/footer';
 import { AutorComponent } from './pages/autor/autor';
 import { Autores } from './pages/autores/autores';
 import { NotFound } from './pages/not-found/not-found';
+import { SobreNosotros } from './pages/sobre-nosotros/sobre-nosotros';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { NotFound } from './pages/not-found/not-found';
     AutorComponent,
     Autores,
     NotFound,
+    SobreNosotros,
   ],
   imports: [
     BrowserModule,

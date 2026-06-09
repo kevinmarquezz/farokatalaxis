@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Autor, EscuelaEconomica } from '../../models/autor.model';
 import { AutoresService } from '../../services/autores-tracks.service';
+import { SeoService } from '../../services/seo-service';
 
 @Component({
   selector: 'app-autores',
@@ -26,9 +27,10 @@ export class Autores implements OnInit {
     otro: 'Otro',
   };
 
-  constructor(private autoresService: AutoresService) {}
+  constructor(private autoresService: AutoresService, private seo: SeoService) {}
 
   ngOnInit(): void {
+      this.seo.setPage('Autores', 'Los grandes economistas y filósofos de la tradición liberal. Mises, Hayek, Rothbard, Friedman y más.');
     this.autoresService.getAll().subscribe(autores => {
       this.autores = autores;
       this.filteredAutores = autores;

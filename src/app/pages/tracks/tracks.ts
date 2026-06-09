@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LearningTrack } from '../../models/autor.model';
 import { TracksService } from '../../services/autores-tracks.service';
+import { SeoService } from '../../services/seo-service';
 
 @Component({
   selector: 'app-tracks',
@@ -9,7 +10,8 @@ import { TracksService } from '../../services/autores-tracks.service';
   styleUrl: './tracks.scss',
 })
 export class Tracks implements OnInit {
-  tracks: LearningTrack[] = [];
+  tracksEmpezar: LearningTrack[] = [];
+  tracksProfundizar: LearningTrack[] = [];
 
   nivelLabel: Record<string, string> = {
     principiante: 'Principiante',
@@ -17,11 +19,13 @@ export class Tracks implements OnInit {
     avanzado: 'Avanzado',
   };
 
-  constructor(private tracksService: TracksService) {}
+  constructor(private tracksService: TracksService, private seo: SeoService) {}
 
   ngOnInit(): void {
+    this.seo.setPage('Tracks', 'Rutas de lectura guiada sobre economía liberal y filosofía política. Encontrá el track que mejor se adapta a tu punto de partida.');
     this.tracksService.getAll().subscribe(tracks => {
-      this.tracks = tracks;
+      this.tracksEmpezar = tracks.filter(t => t.categoria === 'empezar');
+      this.tracksProfundizar = tracks.filter(t => t.categoria === 'profundizar');
     });
   }
 }

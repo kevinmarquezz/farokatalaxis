@@ -8,6 +8,7 @@ import { Track } from './pages/track/track';
 import { AutorComponent } from './pages/autor/autor';
 import { Autores } from './pages/autores/autores';
 import { NotFound } from './pages/not-found/not-found';
+import { SobreNosotros } from './pages/sobre-nosotros/sobre-nosotros';
 
 const routes: Routes = [
   { path: '', component: Home },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'track/:id', component: Track },
   { path: 'autores', component: Autores },
   { path: 'autor/:id', component: AutorComponent },
+  { path: 'sobre-nosotros', component: SobreNosotros },
   { path: '**', component: NotFound },
 ];
 

@@ -71,6 +71,20 @@
           </div>
         </div>
 
+        <div class="filter-group">
+          <h4 class="filter-label">Escuela</h4>
+          <div class="difficulty-buttons">
+            <button
+              *ngFor="let escuela of escuelas"
+              class="difficulty-btn"
+              [class.active]="selectedEscuela === escuela.value"
+              (click)="selectedEscuela = selectedEscuela === escuela.value ? '' : escuela.value; filterResources()"
+            >
+              {{ escuela.label }}
+            </button>
+          </div>
+        </div>
+
         <!-- Author Filter -->
         <div class="filter-group">
           <h4 class="filter-label">Autor</h4>

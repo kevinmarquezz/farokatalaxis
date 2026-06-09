@@ -73,6 +73,7 @@ $shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
+  align-items: start;
 
   @media (min-width: 900px) {
     grid-template-columns: repeat(2, 1fr);
@@ -175,7 +176,7 @@ $shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .card-para-quien {
-  flex: 1;
+  // flex: 1;
   padding: 1rem;
   background: rgba($color-foreground, 0.03);
   border-radius: 8px;
@@ -244,3 +245,32 @@ $shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease;
   }
 }
+
+.tracks-section {
+  margin-bottom: 4rem;
+ 
+  &:last-child { margin-bottom: 0; }
+}
+ 
+.section-header {
+  margin-bottom: 1.75rem;
+}
+ 
+.section-titulo {
+  font-family: $font-serif;
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: $color-foreground;
+  margin-bottom: 0.375rem;
+}
+ 
+.section-descripcion {
+  font-size: 0.9375rem;
+  color: $color-muted;
+}
+ 
+// Cards secundarias ligeramente más sutiles
+.track-card--secundario {
+  background: rgba($color-card, 0.7);
+}
+ 

@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { LearningTrack } from '../../models/autor.model';
 import { TracksService } from '../../services/autores-tracks.service';
+import { SeoService } from '../../services/seo-service';
 
 interface EntryPoint {
   perfil: string;
@@ -41,9 +42,11 @@ export class Home implements OnInit {
     }
   ];
 
-  constructor(private tracksService: TracksService) {}
+  constructor(private tracksService: TracksService, private seo: SeoService) {}
 
   ngOnInit(): void {
+    this.seo.setDefault();
+
     const ENTRY_TRACK_IDS = [
       'empezar-desde-cero',
       'la-otra-vereda',

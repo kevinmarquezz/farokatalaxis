@@ -1,0 +1,242 @@
+$color-background: #FDFAF6;
+$color-foreground: #1a2332;
+$color-primary: #1e3a5f;
+$color-primary-light: #2a4a73;
+$color-accent: #c9a227;
+$color-muted: #6b7280;
+$color-border: #e5e2dc;
+$color-card: #ffffff;
+
+$font-serif: 'Cormorant Garamond', Georgia, serif;
+$font-sans: 'Inter', system-ui, sans-serif;
+
+:host {
+  display: block;
+  background: $color-background;
+  min-height: 100vh;
+}
+
+.sobre-page {
+  position: relative;
+  font-family: $font-sans;
+  color: $color-foreground;
+  overflow: hidden;
+}
+
+// Decoración
+.decoration {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.decoration-circle {
+  position: absolute;
+  border-radius: 50%;
+
+  &.circle-1 {
+    width: 500px;
+    height: 500px;
+    top: -150px;
+    right: -150px;
+    border: 1px solid rgba($color-accent, 0.15);
+  }
+
+  &.circle-2 {
+    width: 350px;
+    height: 350px;
+    top: 300px;
+    left: -100px;
+    border: 1px solid rgba($color-primary, 0.08);
+  }
+
+  &.circle-3 {
+    width: 200px;
+    height: 200px;
+    top: 60%;
+    right: 5%;
+    border: 1px solid rgba($color-accent, 0.1);
+  }
+}
+
+// Header
+.sobre-header {
+  position: relative;
+  z-index: 1;
+  padding: 10rem 2rem 4rem;
+  text-align: center;
+}
+
+.header-inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.hero-tag {
+  display: inline-block;
+  padding: 0.375rem 0.875rem;
+  background: rgba($color-accent, 0.1);
+  color: $color-accent;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  border-radius: 4px;
+  margin-bottom: 1.25rem;
+}
+
+.sobre-titulo {
+  font-family: $font-serif;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 600;
+  color: $color-foreground;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.sobre-subtitulo {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: $color-muted;
+}
+
+// Main
+.sobre-main {
+  position: relative;
+  z-index: 1;
+  padding: 0 2rem 6rem;
+}
+
+.sobre-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+// Sections
+.sobre-section {
+  padding: 3rem 0;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $color-accent;
+  margin-bottom: 0.75rem;
+}
+
+.section-titulo {
+  font-family: $font-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  color: $color-foreground;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.section-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #374151;
+    margin: 0;
+
+    strong {
+      color: $color-foreground;
+      font-weight: 600;
+    }
+  }
+}
+
+// Divider
+.divider {
+  height: 1px;
+  background: $color-border;
+}
+
+// Como grid
+.como-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.como-card {
+  padding: 1.5rem;
+  background: $color-card;
+  border: 1px solid $color-border;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+    border-color: rgba($color-accent, 0.3);
+  }
+}
+
+.como-numero {
+  font-family: $font-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: rgba($color-accent, 0.3);
+  line-height: 1;
+}
+
+.como-titulo {
+  font-family: $font-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: $color-foreground;
+  margin: 0;
+}
+
+.como-descripcion {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: $color-muted;
+  margin: 0;
+}
+
+// Quote
+.sobre-quote {
+  padding: 3rem 0 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.quote-mark {
+  font-family: $font-serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: rgba($color-accent, 0.25);
+  margin-bottom: -1rem;
+}
+
+.quote-texto {
+  font-family: $font-serif;
+  font-size: clamp(1.25rem, 3vw, 1.625rem);
+  font-style: italic;
+  line-height: 1.6;
+  color: $color-foreground;
+  max-width: 600px;
+  margin: 0;
+}
+
+.quote-autor {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: $color-accent;
+}
